@@ -7,9 +7,11 @@ const { stringifyRequest } = require('loader-utils');
 module.exports = function nodeLoader() {
   return (
     `try {global.process.dlopen(module, ${stringifyRequest(
+      this,
       this.resourcePath
     )}); } catch(e) {` +
     `throw new Error('node-loader: Cannot open ' + ${stringifyRequest(
+      this,
       this.resourcePath
     )} + ': ' + e);}`
   );
