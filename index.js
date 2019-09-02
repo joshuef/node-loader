@@ -1,13 +1,15 @@
+const { stringifyRequest } = require('loader-utils');
+
 /*
 	MIT License http://www.opensource.org/licenses/mit-license.php
 	Author Tobias Koppers @sokra
 */
 module.exports = function nodeLoader() {
   return (
-    `try {global.process.dlopen(module, ${JSON.stringify(
+    `try {global.process.dlopen(module, ${stringifyRequest(
       this.resourcePath
     )}); } catch(e) {` +
-    `throw new Error('node-loader: Cannot open ' + ${JSON.stringify(
+    `throw new Error('node-loader: Cannot open ' + ${stringifyRequest(
       this.resourcePath
     )} + ': ' + e);}`
   );

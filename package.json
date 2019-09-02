@@ -36,7 +36,7 @@
     "webpack": "^4.3.0"
   },
   "dependencies": {
-    "loader-utils": "^1.1.0",
+    "loader-utils": "1.2.3",
     "schema-utils": "^0.4.5"
   },
   "devDependencies": {
